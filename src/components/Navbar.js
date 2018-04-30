@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Navbar (props){
+function Navbar (props){	
 	return (<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a className="navbar-brand" href="#">
 			<img src="/assets/pick.png" width="30" height="30" className="d-inline-block align-top" />
@@ -11,11 +11,11 @@ function Navbar (props){
 		</button>
 		<div className="collapse navbar-collapse" id="navbarNav">
 			<ul className="navbar-nav">
-				<li className={"nav-item "+(props.store?"active":"")}>
-					<a className="nav-link" href="#"><img src="/assets/ic_store_white_24px.svg" />Store</a>
+				<li className={"nav-item "+(props.viewingStore?"active":"")}>
+					<a className="nav-link" href="#" onClick={props.onMenuItemClick}><img src="/assets/ic_store_white_24px.svg" />Store</a>
 				</li>
-				<li className={"nav-item"+(!props.store?"active":"")}>
-					<a className="nav-link" href="#"><img src="/assets/ic_shopping_cart_white_24px.svg" />Cart</a>
+				<li className={"nav-item"+(!props.viewingStore?"active":"")}>
+					<a className="nav-link" href="#" onClick={props.onMenuItemClick}><img src="/assets/ic_shopping_cart_white_24px.svg" />({props.totalCartItems}) Cart</a>
 				</li>
 			</ul>
 		</div>

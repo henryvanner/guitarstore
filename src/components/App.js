@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from './Navbar';
 import Store from './Store';
+import Menu from '../containers/Menu';
 import ShoppingCart from '../containers/ShoppingCart';
 
-export const guitars = [{
+const guitars = [{
 	"id":1,
 	"name":"Fender Jimi Hendrix Monterey Strat",
 	"model":"st",
@@ -161,14 +161,24 @@ const filters = [{
 		value:"fanfret"
 	}]
 }];
-
-export function App(props){
-	return (
-		<React.Fragment>
-			<Navbar store={true}/>
-			<div id="main-container">
-				<ShoppingCart guitars={guitars}/>
-			</div>
-		</React.Fragment>
-	);	
+//<Store filters={filters} guitars={guitars}/>
+export class App extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {viewingStore:true};
+		this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+	}
+	handleMenuItemClick(e){
+		this.setState({viewingStore:!this.state.viewingStore});
+	}
+	render(){
+		return (
+			<React.Fragment>
+				<Menu viewingStore={this.state.viewingStore} onMenuItemClick={this.handleMenuItemClick}/>
+				<div id="main-container">
+					{this.state.viewingStore?<Store filters={filters} guitars={guitars}/>:<ShoppingCart guitars={guitars}/>}
+				</div>
+			</React.Fragment>
+		);
+	}
 }

@@ -15,7 +15,7 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-/*import {
+import {
 	toggleFilter
 	,addToCart
 	,removeFromCart
@@ -27,13 +27,13 @@ const unsubscribe = store.subscribe(()=>{
 	console.log(store.getState());
 });
 
-store.dispatch(toggleFilter({model:"t"}));
+/*store.dispatch(toggleFilter({model:"t"}));
 store.dispatch(toggleFilter({model:"st"}));
 store.dispatch(toggleFilter({model:"fanfret"}));
 store.dispatch(toggleFilter({model: "t"}));
 store.dispatch(toggleFilter({manufacturer:"gibson"}));
 store.dispatch(toggleFilter({manufacturer:"gibson"}));
-store.dispatch(toggleFilter({manufacturer:"fender"}));
-store.dispatch(addToCart(5));
-store.dispatch(addToCart(12));
-unsubscribe();*/
+store.dispatch(toggleFilter({manufacturer:"fender"}));*/
+//store.dispatch(addToCart(5));
+//store.dispatch(addToCart(12));
+//unsubscribe();

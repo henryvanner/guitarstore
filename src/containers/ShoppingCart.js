@@ -4,7 +4,7 @@ import Cart from '../components/Cart';
 
 function getCartItems (guitars,cart){
 	var items = guitars.map(guitar=>{
-		var cartInfo = cart.find(item=>item.item === guitar.id);
+		var cartInfo = cart.find(item=>item.item == guitar.id);
 		if (cartInfo) {
 			guitar["quantity"] = cartInfo.quantity;
 			return guitar;

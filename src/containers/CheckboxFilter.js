@@ -5,9 +5,7 @@ import Checkbox from '../components/Checkbox';
 const mapStateToProps = (state,ownProps)=>{
 	return {
 		id: ownProps.attribute.concat(ownProps.correlative),
-		checked: state.filter[ownProps.attribute].indexOf(ownProps.value) != -1,
-		label: ownProps.label,
-		value: ownProps.value
+		checked: state.filter[ownProps.attribute].indexOf(ownProps.value) != -1		
 	}
 }
 
