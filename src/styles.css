@@ -1,0 +1,49 @@
+div#main-container{
+	margin:0px auto;
+	border: 1px solid #777;
+	padding: 1rem;
+	max-width: 1450px;	
+}
+div.shop-container{
+	display: flex;
+}
+div.shop-container > div{
+	padding: 1rem;
+	flex: 1;
+}
+div.shop-container div.filter{
+	min-width: 250px;
+	flex-grow: 0;
+	border-right: 1px solid #777;
+}
+div.filter label.form-check-label{
+	cursor: pointer;
+}
+div.shop-container div.store{
+	display: grid;
+	grid-template-columns: repeat(auto-fill,minmax(246px,1fr));
+	grid-auto-rows: max-content;
+	padding-right: 0px;
+}
+div.store div.card{
+	min-height: 280px;
+}
+div.store div.card div.inner{
+	display: flex;
+}
+div.store div.card div.inner > div{
+	flex: 1;
+}
+div.store div.card div.inner div.preview{
+	max-width: 96px;
+}
+div.store div.card div.inner div.info{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+div.store div.card div.inner div.info span{
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	align-self: center;
+}
