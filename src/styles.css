@@ -47,3 +47,27 @@ div.store div.card div.inner div.info span{
 	font-size: 1.5rem;
 	align-self: center;
 }
+/*cart*/
+table.cart-list td{
+	vertical-align: middle;
+}
+table.cart-list td:first-child img{
+	width: 64px;
+}
+table.cart-list td input[type="number"]{
+	display: inline-block;
+	width:80px;
+}
+table.cart-list td img.delete-action{
+	margin-left: 1rem;
+	cursor: pointer;
+}
+table.cart-list td img.delete-action + span{
+	visibility: collapse;
+}
+table.cart-list td img.delete-action:hover + span{
+	visibility: visible;
+}
+table.cart-list tfoot tr th:first-child{
+	text-align: right;	
+}

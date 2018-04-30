@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Store from './Store';
+import ShoppingCart from '../containers/ShoppingCart';
 
 export const guitars = [{
 	"id":1,
@@ -161,12 +162,12 @@ const filters = [{
 	}]
 }];
 
-export function App(props){	
+export function App(props){
 	return (
 		<React.Fragment>
 			<Navbar store={true}/>
 			<div id="main-container">
-				<Store filters={filters} guitars={guitars}/>
+				<ShoppingCart guitars={guitars}/>
 			</div>
 		</React.Fragment>
 	);	

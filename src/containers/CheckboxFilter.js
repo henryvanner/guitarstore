@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {toggleFilter} from '../actions';
-import Checkbox from '../Checkbox';
+import Checkbox from '../components/Checkbox';
 
 const mapStateToProps = (state,ownProps)=>{
 	return {

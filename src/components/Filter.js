@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckboxFilter from './containers/CheckboxFilter';
+import CheckboxFilter from '../containers/CheckboxFilter';
 
 function FilterSection(props){
 	return (<section>
