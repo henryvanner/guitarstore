@@ -13,8 +13,9 @@ const mapStateToProps = (state,ownProps)=>{
 }
 const mapDispatchToProps = (dispatch,ownProps)=>{
 	return {
-		onAddToCart: (e)=>{
+		onAddToCart: (e)=>{			
 			dispatch(addToCart(e.target.dataset.id));
+			alert("Se agregó artículo al carrito!");
 		}
 	}
 }

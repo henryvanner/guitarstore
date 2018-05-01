@@ -20,7 +20,7 @@ const mapStateToProps = (state,ownProps) => {
 	}
 }
 
-const mapDistpachToProps = (dispatch,ownProps) => {
+const mapDispatchToProps = (dispatch,ownProps) => {
 	return {
 		onRemoveFromCart: (e)=>{
 			dispatch(removeFromCart(e.target.parentElement.dataset.id));
@@ -31,6 +31,6 @@ const mapDistpachToProps = (dispatch,ownProps) => {
 	}
 }
 
-const ShoppingCart = connect(mapStateToProps,mapDistpachToProps)(Cart);
+const ShoppingCart = connect(mapStateToProps,mapDispatchToProps)(Cart);
 
 export default ShoppingCart;

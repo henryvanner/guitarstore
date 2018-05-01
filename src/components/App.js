@@ -161,22 +161,26 @@ const filters = [{
 		value:"fanfret"
 	}]
 }];
-//<Store filters={filters} guitars={guitars}/>
+
 export class App extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {viewingStore:true};
 		this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
+		this.handleContinueShoppingClick = this.handleContinueShoppingClick.bind(this);
 	}
 	handleMenuItemClick(e){
 		this.setState({viewingStore:!this.state.viewingStore});
+	}
+	handleContinueShoppingClick(e){
+		this.setState({viewingStore:true});
 	}
 	render(){
 		return (
 			<React.Fragment>
 				<Menu viewingStore={this.state.viewingStore} onMenuItemClick={this.handleMenuItemClick}/>
 				<div id="main-container">
-					{this.state.viewingStore?<Store filters={filters} guitars={guitars}/>:<ShoppingCart guitars={guitars}/>}
+					{this.state.viewingStore?<Store filters={filters} guitars={guitars}/>:<ShoppingCart guitars={guitars} onContinueShopping={this.handleContinueShoppingClick}/>}
 				</div>
 			</React.Fragment>
 		);
