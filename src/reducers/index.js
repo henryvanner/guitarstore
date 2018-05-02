@@ -4,6 +4,8 @@ import {
 	,ADD_TO_CART
 	,REMOVE_FROM_CART
 	,CHANGE_ITEM_QUANTITY
+	,REQUEST_SERVER_DATA
+	,RECEIVE_SERVER_DATA
 } from '../actions';
 
 function filter (state = {model:[],manufacturer:[]},action){
@@ -47,9 +49,21 @@ function cart (state = [],action){
 	}
 }
 
+function serverData (state = {fetching:false,guitars:[]},action){
+	switch (action.type){
+		case REQUEST_SERVER_DATA:
+			return Object.assign({},state,{fetching:true});
+		case RECEIVE_SERVER_DATA:
+			return Object.assign({},state,{fetching:false,guitars:action.guitars});
+		default:
+			return state;
+	}
+}
+
 const guitarShopApp = combineReducers({
 	filter,
-	cart
+	cart,
+	serverData
 });
 
 export default guitarShopApp;
