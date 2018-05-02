@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+var object = { 'a': [{ 'b': { 'c': 3 } }] };
+var object2 = {a: { b: { c: 3 } } };
+var path1 = 'a.b.c';
+var path2 = 'a.b.d';
+
+function getIn(obj,path,defaultValue){
+	var step = path.split("."),i=0;
+	while(step[i]){
+		if (!obj.hasOwnProperty(step[i])) {
+			return defaultValue;
+		}
+		obj = obj[step[i]];
+		i++;
+	}
+	return obj;
+}
+
+var path1Str = JSON.stringify(path1);
+var path2Str = JSON.stringify(path2);
+var objectStr = JSON.stringify(object);
+var object2Str = JSON.stringify(object2);
+console.log("var object = ",objectStr);
+console.log("getIn(object,",path1Str,",'default')");
+console.log("=> ",getIn(object,path1,'default'));
+console.log("var object2 = ",object2Str);
+console.log("getIn(object2,",path1Str,",5)");
+console.log("=> ",getIn(object2,path1,5));
+console.log("getIn(object2,",path2Str,",5)");
+console.log("=> ",getIn(object2,path2,5));
+
+</script>
+</body>
+</html>

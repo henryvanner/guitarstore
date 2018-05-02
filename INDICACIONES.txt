@@ -1,0 +1,7 @@
+1.descargar el proyecto y ejecutar en consola:
+
+	guitarstore> npm run server
+
+2.abrir otra consola
+	guitarstore> npm install -g json-server
+        guitarstore> json-server --watch db.json
