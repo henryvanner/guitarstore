@@ -5,3 +5,6 @@
 2.abrir otra consola
 	guitarstore> npm install -g json-server
         guitarstore> json-server --watch db.json
+
+la resolución del segundo ejercicio
+se encuentra en el archivo "second_exercise.html"
