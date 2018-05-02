@@ -16,7 +16,7 @@ function getCartItems (guitars,cart){
 
 const mapStateToProps = (state,ownProps) => {
 	return {
-		items: getCartItems(ownProps.guitars,state.cart)
+		items: getCartItems(state.serverData.guitars,state.cart)
 	}
 }
 

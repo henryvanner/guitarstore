@@ -46,12 +46,27 @@ export function receiveServerData (json){
 	}
 }
 
-export function fetchServerData (){
+function shouldFetchData (state){
+	if (state.serverData.guitars.length == 0) {
+		return true;
+	}
+	return false;
+}
+function fetchServerData (){
 	return dispatch =>{
 		dispatch(requestServerData());
 		return fetch("http://localhost:3000/guitars")
 		.then(response=>response.json(),
-			error=>console.log('An error ocurred!',error))
+			error=>console.log('Something wrong happened!',error))
 		.then(json=>dispatch(receiveServerData(json)));
+	}
+}
+export function fetchServerDataIfNeeded (){
+	return (dispatch,getState)=>{
+		if (shouldFetchData(getState())) {
+			return dispatch(fetchServerData());
+		}else{
+			return Promise.resolve();
+		}
 	}
 }

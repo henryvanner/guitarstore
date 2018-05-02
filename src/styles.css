@@ -71,3 +71,43 @@ table.cart-list td img.delete-action:hover + span{
 table.cart-list tfoot tr th:first-child{
 	text-align: right;	
 }
+/*loading icon*/
+div.loading{
+	width:180px;
+	height: 86px;
+	position: relative;
+}
+div.loading > img{
+	position: absolute;
+	opacity: 0;
+}
+div.loading > img[src*="bass1.svg"]{
+	opacity: 1;
+}
+div.loading > img[src*="bass2.svg"]{
+	animation: ease infinite wave1 1s;
+}
+div.loading > img[src*="bass3.svg"]{
+	animation: ease infinite wave2 1s;
+}
+div.loading > img[src*="bass4.svg"]{
+	animation: ease infinite wave3 1s;
+}
+
+@keyframes wave1{
+	from {opacity: 0}
+	25%{opacity:1;}
+	50%{opacity:0;}
+}
+@keyframes wave2{
+	from {opacity: 0}
+	25%{opacity:0;}
+	50%{opacity:1;}
+	75%{opacity:0;}
+}
+@keyframes wave3{
+	from {opacity: 0}
+	50%{opacity:0;}
+	75%{opacity: 1}
+	to{opacity:0;}
+}
