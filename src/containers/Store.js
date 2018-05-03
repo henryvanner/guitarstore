@@ -8,11 +8,22 @@ import VisibleGuitarGrid from '../containers/VisibleGuitarGrid';
 
 function LoadingImg (props){
 	return (
-		<div className="loading">
-			<img src="/assets/bass1.svg"/>
-			<img src="/assets/bass2.svg"/>
-			<img src="/assets/bass3.svg"/>
-			<img src="/assets/bass4.svg"/>
+		<div>
+			<div className="loading">
+				<img src="/assets/bass1.svg"/>
+				<img src="/assets/bass2.svg"/>
+				<img src="/assets/bass3.svg"/>
+				<img src="/assets/bass4.svg"/>
+			</div>
+		</div>
+	);
+}
+
+function ErrorMessage (props){
+	return (
+		<div>
+			<p className="text-danger">{props.message}</p>
+			<button className="btn btn-primary" onClick={props.onTryAgain}>Intentar otra vez</button>
 		</div>
 	);
 }
@@ -20,27 +31,34 @@ function LoadingImg (props){
 class Store extends React.Component{
 	constructor(props){
 		super(props);
+		this.handleTryAgain = this.handleTryAgain.bind(this);
+	}
+	handleTryAgain (e){
+		const {dispatch} = this.props;
+		dispatch(fetchServerDataIfNeeded());
 	}
 	componentDidMount (){
 		const {dispatch} = this.props;
 		dispatch(fetchServerDataIfNeeded());
 	}
 	render(){
-		const {fetching,guitars} = this.props;
+		const {fetching,guitars,error,errorMessage} = this.props;
 		return (
 			<div className="shop-container">
 				<Filter filters={this.props.filters}/>
-				{fetching ? <div><LoadingImg /></div> :<VisibleGuitarGrid guitars={guitars}/>}
+				{fetching ? <LoadingImg />: (error ? <ErrorMessage message={errorMessage} onTryAgain={this.handleTryAgain}/> :<VisibleGuitarGrid guitars={guitars}/> )}
 			</div>
 		);
 	}	
 }
 
 function mapStateToProps (state){
-	const {guitars,fetching} = state.serverData;
+	const {guitars,fetching,error,errorMessage} = state.serverData;
 	return {
 		guitars,
-		fetching
+		fetching,
+		error,
+		errorMessage
 	}
 }
 

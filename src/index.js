@@ -17,20 +17,18 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
-/*import {
+import {
 	toggleFilter
 	,addToCart
 	,removeFromCart
 	,changeItemQuantity
 	,fetchServerDataIfNeeded
 } from './actions';
-console.log(store.getState());
 
+console.log(store.getState());
 const unsubscribe = store.subscribe(()=>{
 	console.log(store.getState());
 });
 
-store.dispatch(fetchServerDataIfNeeded())
-	.then(()=>console.log(store.getState()));
-
-unsubscribe();*/
+/*store.dispatch(fetchServerDataIfNeeded())
+	.then(()=>console.log(store.getState()));*/

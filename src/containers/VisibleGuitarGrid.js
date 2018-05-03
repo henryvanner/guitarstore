@@ -8,7 +8,7 @@ function getVisibleGuitars (guitars,filter){
 }
 const mapStateToProps = (state,ownProps)=>{
 	return {
-		guitars: getVisibleGuitars(ownProps.guitars,state.filter)
+		guitars: getVisibleGuitars(state.serverData.guitars,state.filter)
 	}
 }
 const mapDispatchToProps = (dispatch,ownProps)=>{

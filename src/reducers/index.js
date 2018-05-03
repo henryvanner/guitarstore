@@ -6,6 +6,7 @@ import {
 	,CHANGE_ITEM_QUANTITY
 	,REQUEST_SERVER_DATA
 	,RECEIVE_SERVER_DATA
+	,ERROR_ON_FETCHING_DATA
 } from '../actions';
 
 function filter (state = {model:[],manufacturer:[]},action){
@@ -49,12 +50,14 @@ function cart (state = [],action){
 	}
 }
 
-function serverData (state = {fetching:false,guitars:[]},action){
+function serverData (state = {fetching:false,guitars:[],error:false,errorMessage:""},action){
 	switch (action.type){
 		case REQUEST_SERVER_DATA:
-			return Object.assign({},state,{fetching:true});
+			return Object.assign({},state,{fetching:true,error:false});
 		case RECEIVE_SERVER_DATA:
-			return Object.assign({},state,{fetching:false,guitars:action.guitars});
+			return Object.assign({},state,{fetching:false,error:false,guitars:action.guitars});
+		case ERROR_ON_FETCHING_DATA:
+			return Object.assign({},state,{fetching:false,error:true,errorMessage:action.error})
 		default:
 			return state;
 	}

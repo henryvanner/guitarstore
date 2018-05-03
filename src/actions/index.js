@@ -45,6 +45,13 @@ export function receiveServerData (json){
 		guitars: json
 	}
 }
+export function errorOnFetchingData(err){
+	return{
+		type: ERROR_ON_FETCHING_DATA,
+		error: err		
+	}
+}
+
 
 function shouldFetchData (state){
 	if (state.serverData.guitars.length == 0) {
@@ -56,9 +63,14 @@ function fetchServerData (){
 	return dispatch =>{
 		dispatch(requestServerData());
 		return fetch("http://localhost:3000/guitars")
-		.then(response=>response.json(),
-			error=>console.log('Something wrong happened!',error))
-		.then(json=>dispatch(receiveServerData(json)));
+		.then(response=>response.json(),error=>error)
+		.then(json=>{
+			if (json instanceof Error) {
+				dispatch(errorOnFetchingData(json.message));
+			}else{
+				dispatch(receiveServerData(json));
+			}
+		});
 	}
 }
 export function fetchServerDataIfNeeded (){
